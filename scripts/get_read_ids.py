@@ -40,11 +40,11 @@ with open(csv) as f:
             if not _5mer in match5:
                 match5[_5mer] = [cols[0]]
                 with open(os.path.join(outdir, outfile), "w") as f:
-                    f.write(_5mer + "\n")
+                    f.write(cols[0] + "\n")
             else:
                 match5[_5mer].append(cols[0])
                 with open(os.path.join(outdir, outfile), "a") as f:
-                    f.write(_5mer + "\n")
+                    f.write(cols[0] + "\n")
 
 for key in match5:
     print(key, len(match5[key]))
