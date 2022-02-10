@@ -25,3 +25,25 @@ import pathlib
 
 csv        = sys.argv[1]
 outdir     = sys.argv[2]
+
+match5 = {}
+
+pathlib.path(outdir).mkdir(parents=True, exist_ok=True)
+
+with open(csv) as f:
+    for line in f:
+        cols  = line.split()
+        if cols[1] == "match_5":
+            _5mer = cols[4][::-1]
+            outfile = "read_ids_" + _5mer + ".txt"
+            if not _5mer in match5:
+                match5[_5mer] = [cols[0]]
+                with open(os.path.join(outdir, outfile), "w") as f:
+                    f.write(_5mer + "\n")
+            else:
+                match5[_5mer].append(cols[0])
+                with open(os.path.join(outdir, outfile), "a") as f:
+                    f.write(_5mer + "\n")
+
+for key in match5:
+    print(key, len(match5[key]))
