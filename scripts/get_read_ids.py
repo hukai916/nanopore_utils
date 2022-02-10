@@ -29,7 +29,7 @@ outdir     = sys.argv[2]
 
 match5 = {}
 
-pathlib.path(outdir).mkdir(parents=True, exist_ok=True)
+pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 
 with open(csv) as f:
     for line in f:
