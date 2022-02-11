@@ -32,12 +32,9 @@ nanopolish_align = "nanopolish eventalign --reads " + fasta + " --bam " + outdir
 commands = ["module load minimap2/2.17", "module load samtools/1.4.1", "module load nanopolish/v0.13.2", nanopolish_index, minimap2, samtools_index, nanopolish_align]
 pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 command  = " && ".join(commands)
-
-if executor == "local":
-    print(_5mer, " running ...")
-    subprocess.call(command, shell = True)
-    print(_5mer, " done")
-elif executor == "hpc":
+if executor == "hpc":
     command = 'bsub -q short -n 1 -W 4:00 -R select[rh=6] -R rusage[mem=4000] -o ' + outdir + "/" + _5mer + ".log " + '"' + command  + '"'
-    print(command)
-    #subprocess.call(command, shell = True)
+
+print(_5mer, " running ...")
+subprocess.call(command, shell = True)
+print(_5mer, " done")
