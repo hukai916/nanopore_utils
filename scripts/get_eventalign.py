@@ -37,4 +37,7 @@ if executor == "hpc":
 
 print(_5mer, " running ...")
 subprocess.call(command, shell = True)
-print(_5mer, " done")
+if (executor == "hpc"):
+    print(_5mer, " submitted to hpc!")
+else:
+    print(_5mer, " done!")
