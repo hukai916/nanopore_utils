@@ -16,7 +16,7 @@ outdir    = sys.argv[3]
 pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 
 match_fasta_ref = {}
-fasta_files = glob.glob(fasta_dir + "/reads_fasta_*.fasta")
+fasta_files = glob.glob(fasta_dir + "/reads_seqs_*.fasta")
 ref_files   = glob.glob(ref_dir + "/ref_*.fasta")
 print(fasta_files)
 print(fasta_dir)
