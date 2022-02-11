@@ -25,7 +25,6 @@ for read_ids in read_ids_list:
     outfile = os.path.join(outdir, "read_seqs_" + _5mer + ".fasta")
     with open(outfile, "w") as f:
         pass
-    open(os.path.join(outdir, outfile), "w")
     with open(read_ids) as f:
         for line in f:
             id = line.strip()
