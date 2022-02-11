@@ -13,7 +13,6 @@ import glob
 fasta_dir = sys.argv[1]
 ref_dir   = sys.argv[2]
 outdir    = sys.argv[3]
-pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 
 match_fasta_ref = {}
 fasta_files = glob.glob(fasta_dir + "/read_seqs_*.fasta")
@@ -29,10 +28,12 @@ for ref in ref_files:
     if _5mer in match_fasta_ref:
         match_fasta_ref[_5mer].append(os.path.realpath(ref))
 
+pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 for key in match_fasta_ref:
     if len(match_fasta_ref[key]) == 2:
         print("Outputing for ", key, " ...")
-        outname = os.path.join(outdir, "/match_fasta_ref_", key, ".txt")
+        outname = os.path.join(outdir, "match_fasta_ref_", key, ".txt")
+        print(outname)
 
         with open(outname, "w") as f:
             f.write("\t".join([key, match_fasta_ref[key][0], match_fasta_ref[key][1]]))
