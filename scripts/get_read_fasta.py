@@ -33,6 +33,7 @@ for read_ids in read_ids_list:
 
 for record in SeqIO.parse(fastq, "fastq"):
     if record.name in read_id_fasta:
+        print(record.name, read_id_fasta[record.name])
         with open(read_id_fasta[record.name][1], "a") as f:
             f.write(">" + record.name + "\n")
             f.write(str(record.seq) + "\n")
