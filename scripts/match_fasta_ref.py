@@ -30,6 +30,7 @@ for ref in ref_files:
 
 pathlib.Path(outdir).mkdir(parents=True, exist_ok=True)
 for key in match_fasta_ref:
+    print(key)
     if len(match_fasta_ref[key]) == 2:
         print("Outputing for ", key, " ...")
         outname = os.path.join(outdir, "match_fasta_ref_", key, ".txt")
