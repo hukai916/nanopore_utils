@@ -30,4 +30,9 @@ for ref in ref_files:
         match_fasta_ref[_5mer].append(os.path.realpath(ref))
 
 for key in match_fasta_ref:
-    print(key, match_fasta_ref[key])
+    if len(match_fasta_ref[key]) == 2:
+        print("Outputing for ", key, " ...")
+        outname = os.path.join(outdir, "/match_fasta_ref_", key, ".txt")
+
+        with open(outname, "w") as f:
+            f.write("\t".join([key, match_fasta_ref[key][0], match_fasta_ref[key][1]]))
