@@ -33,7 +33,6 @@ for key in match_fasta_ref:
     if len(match_fasta_ref[key]) == 2:
         print("Outputing for ", key, " ...")
         outname = os.path.join(outdir, "match_fasta_ref_" + key + ".txt")
-        print(outname)
 
         with open(outname, "w") as f:
             f.write("\t".join([key, match_fasta_ref[key][0], match_fasta_ref[key][1]]))
