@@ -6,7 +6,7 @@ python get_read_fasta.py read_ids_dir fastq outdir
 """
 
 import sys
-import Path
+import pathlib
 import os
 import glob
 from Bio import SeqIO
