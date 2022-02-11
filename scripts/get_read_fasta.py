@@ -30,10 +30,12 @@ for read_ids in read_ids_list:
             id = line.strip()
             if not id in read_id_fasta:
                 read_id_fasta[id] = outfile
-
+count = 0
 for record in SeqIO.parse(fastq, "fastq"):
     if record.name in read_id_fasta:
-        print(record.name, read_id_fasta[record.name])
+        count += 1
+        if count % 10000 == 1:
+            print("processed ", count)
         with open(read_id_fasta[record.name], "a") as f:
             f.write(">" + record.name + "\n")
             f.write(str(record.seq) + "\n")
