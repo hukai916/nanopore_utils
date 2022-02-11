@@ -19,7 +19,9 @@ executor  = sys.argv[4]
 if not executor == "hpc":
     executor = "local"
 
-_5mer, fasta, ref = match_fasta_ref_file.split()
+with open(match_fasta_ref_file) as f:
+    for line in f:
+        _5mer, fasta, ref = line.split()
 
 nanopolish_index = "nanopolish index -d " + fast5_dir + " " + fasta
 minimap2         = "minimap2 -ax map-ont " + ref + " " + fasta + " | samtools sort -o " + outdir + "/" + _5mer + ".sorted.bam -T " + _5mer + ".tmp"
