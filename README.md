@@ -2,7 +2,7 @@
 
 ## scripts/
 ### get_refs.py
-Return reference fasta by combining the 5 nucleotides.
+Return reference fasta by concatenating combinations of the 5 nucleotides.
 
 Usage:
 python get_refs.py outdir
@@ -19,7 +19,15 @@ Parse csv from bam_parser.py and output reference fasta to designated folder.
 Usage:
 python get_read_ids.py input.csv outdir
 
-###
+### get_read_fasta.py
+Given read_ids folder, fastq file, and output dir, for each read_ids.txt, extract the fasta and save to output dir.
+
+Usage:
+python get_read_fasta.py read_ids_dir fastq
+
+Dependencies:
+- Bio
+
 
 
 bash/get_current.sh
