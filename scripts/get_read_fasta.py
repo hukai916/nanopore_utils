@@ -22,7 +22,7 @@ read_id_fasta = {}
 
 for read_ids in read_ids_list:
     _5mer = read_ids.split(".txt")[0].split("read_ids_")[1]
-    outfile = os.path.join([outdir, "read_seqs_" + _5mer + ".fasta"])
+    outfile = os.path.join(outdir, "read_seqs_" + _5mer + ".fasta")
     with open(outfile, "w") as f:
         pass
     open(os.path.join(outdir, outfile), "w")
