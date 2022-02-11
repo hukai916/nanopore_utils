@@ -19,7 +19,7 @@ match_fasta_ref = {}
 fasta_files = glob.glob(fasta_dir + "/reads_fasta_*.fasta")
 ref_files   = glob.glob(ref_dir + "/ref_*.fasta")
 print(fasta_files)
-print(fastq_dir)
+print(fasta_dir)
 
 for fasta in fasta_files:
     _5mer = fasta.split("_")[-1].split(".fasta")[0]
