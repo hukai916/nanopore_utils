@@ -28,7 +28,7 @@ python get_read_fasta.py read_ids_dir fastq
 Dependencies:
 - Bio
 
-
+### get_event
 
 bash/get_current.sh
   Extract the current value.
