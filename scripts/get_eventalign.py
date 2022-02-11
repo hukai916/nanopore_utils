@@ -37,6 +37,7 @@ if executor == "local":
     print(_5mer, " running ...")
     subprocess.call(command, shell = True)
     print(_5mer, " done")
-else if executor == "hpc":
+elif executor == "hpc":
     command = 'bsub -q short -n 1 -W 4:00 -R select[rh=6] -R rusage[mem=4000] -o ' + outdir + "/" + _5mer + ".log " + '"' + command  + '"'
-    print(command) 
+    print(command)
+    #subprocess.call(command, shell = True)
