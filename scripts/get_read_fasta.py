@@ -31,5 +31,8 @@ for read_ids in read_ids_list:
             if not id in read_id_fasta:
                 read_id_fasta[id] = outfile
 
-for record in SeqIO.Parse(fastq, "fastq"):
-    print(dir())
+for record in SeqIO.parse(fastq, "fastq"):
+    if record.name in read_id_fasta:
+        with open(read_id_fasta[record.name][1], "a") as f:
+            f.write(">" + record.name + "\n")
+            f.write(record.seq + "\n")
