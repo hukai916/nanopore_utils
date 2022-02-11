@@ -35,7 +35,7 @@ with open(csv) as f:
     for line in f:
         cols  = line.split()
         if cols[1] == "match_5":
-            _5mer = cols[4][::-1]
+            _5mer = cols[3][::-1]
             outfile = "read_ids_" + _5mer + ".txt"
             if not _5mer in match5:
                 match5[_5mer] = [cols[0]]
