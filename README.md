@@ -28,6 +28,13 @@ python get_read_fasta.py read_ids_dir fastq
 Dependencies:
 - Bio
 
+### match_fasta_ref.py
+Given two input folders: fasta and ref, return the fasta-ref matching info. This is for get_eventalign.py step.
+
+Usage:
+python match_fasta_ref.py fasta_dir ref_dir out_dir
+
+
 ### get_eventalign.py
 
 TODO
