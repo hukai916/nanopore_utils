@@ -129,7 +129,7 @@ more  match_fasta_ref_5r_BrdU/match_fasta_ref_CAUTU.txt
 CAUTU	/project/umw_william_flavahan/Kai/nanopore/nanopore_utils/scripts/reads_fasta_5r_BrdU/read_seqs_CAUTU.fasta	/project/umw_william_flavahan/Kai/nanopore/nanopore_utils/
 scripts/refs/ref_CAUTU.fasta
 ```
-**Step4:**: get subset fast5 of match_5 reads  
+**Step4:**: get a subset fast5 of match_5 reads  
 This is to prepare for the input to Step5.
 To subset fast5, the tools are installed in docker: hukai916/nanopore:0.1.
 Note that fast5 are compressed in VBZ format, which is not compatible with downstream eventaligner unless you install the VBZ plugin. To solve it, choose to convert fast5 to gzip format. But a better solution would be to use a container with the plugin installed (pending task).
